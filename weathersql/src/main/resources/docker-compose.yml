@@ -1,0 +1,40 @@
+version: '3.4'
+services:
+  mysql:
+    hostname: mysql
+    image: 'mysql:latest'
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: weathersql
+  mongo:
+    image: mongo
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: morningbackend
+      MONGO_INITDB_ROOT_PASSWORD: something
+  weathersql:
+    image: weathersql
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/weathersql
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: pass
+      SQL_MONGO_WEATHER_PROVIDER_URL: http://weathermongo:8080/fact
+    depends_on:
+      - mysql
+  weathermongo:
+    image: weathermongo
+    ports:
+      - "8081:8080"
+    restart: always
+    environment:
+      SPRING_DATA_MONGODB.UIR: mongodb://morningbackend:something@mongo:2701
+
+
