@@ -36,5 +36,7 @@ services:
     restart: always
     environment:
       SPRING_DATA_MONGODB.UIR: mongodb://morningbackend:something@mongo:2701
+      WEATHER_API_URL: https://api.weatherapi.com/v1/current.json
+      WEATHER_API_KEY: edea2b081d694cc6902110641212810
 
 
