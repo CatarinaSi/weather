@@ -19,8 +19,8 @@ public class WeatherController {
     }
 
     @GetMapping("/weather")
-    public WeatherResponse getCityWeather(@RequestParam String city) {
-        return weatherService.getWeather(city).weatherResponse();
+    public Weather getCityWeather(@RequestParam String city) {
+        return weatherService.getWeather(city);
 
     }
 }

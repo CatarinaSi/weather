@@ -1,6 +1,5 @@
-package com.bootcamp.weathermongo.controller.response;
+package com.bootcamp.weathersql.controller.response;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

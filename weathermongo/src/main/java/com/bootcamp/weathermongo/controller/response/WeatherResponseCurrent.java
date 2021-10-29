@@ -16,7 +16,7 @@ public class WeatherResponseCurrent {
     @JsonProperty(value = "temp_c")
     private float temperature;
     @JsonProperty(value = "last_updated")
-    private LocalDateTime time;
+    private String time;
     @JsonProperty(value = "precip_mm")
     private float precipitation;
 }

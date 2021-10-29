@@ -1,10 +1,9 @@
-package com.bootcamp.weathermongo.model;
+package com.bootcamp.weathersql.model;
 
-import com.bootcamp.weathermongo.controller.response.WeatherResponse;
+import com.bootcamp.weathersql.controller.response.WeatherResponse;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
@@ -14,7 +13,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Document
 public class Weather {
 
     @Id
