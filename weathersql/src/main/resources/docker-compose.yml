@@ -12,15 +12,15 @@ services:
       MYSQL_DATABASE: weathersql
 
   weathersql:
-    image: weathersql
+    image: wheathersql
     ports:
-      - "8080:8080"
+      - "8082:8080"
     restart: always
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/weathersql
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: pass
-      WEATHER_PROVIDER_URL: http://weathermongo:8080/
+      WEATHER_PROVIDER_URL: http://weathermongo:8081/
     depends_on:
       - mysql
   mongo:
@@ -28,15 +28,15 @@ services:
     ports:
       - "27018:27017"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: morningbackend
-      MONGO_INITDB_ROOT_PASSWORD: something
+      MONGO_INITDB_ROOT_USERNAME: catarinaea
+      MONGO_INITDB_ROOT_PASSWORD: 1234
   weathermongo:
-    image: weathermongo
+    image: wheathermongo
     ports:
-      - "8081:8080"
+      - "8081:8081"
     restart: always
     environment:
-      SPRING_DATA_MONGODB_URI: mongodb://morningbackend:something@mongo:27017/test
+      SPRING_DATA_MONGODB_URI: mongodb://catarina:1234@mongo:27017/test
       WEATHER_API_URL: https://api.weatherapi.com/v1/current.json
       WEATHER_API_KEY: edea2b081d694cc6902110641212810
 
