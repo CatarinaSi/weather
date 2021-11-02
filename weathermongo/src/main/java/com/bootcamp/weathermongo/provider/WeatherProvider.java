@@ -22,7 +22,7 @@ public class WeatherProvider {
         this.apiKey = apiKey;
     }
 
-    public Weather getCityWeather(String city) {
+    public Weather getCityWeather(String city) { 
         String url = apiUrl + "?key=" + apiKey + "&q=" + city + "&aqi=no";
         final ResponseEntity<WeatherResponseApi> response = restTemplate.getForEntity(url, WeatherResponseApi.class);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");

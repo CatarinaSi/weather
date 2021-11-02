@@ -10,7 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class WeatherResponseApi {
+public class WeatherResponseApi { //TODO: this should be in the provider package, we should keep our responses separated from the responses from the API
     @JsonProperty(value = "current")
     private WeatherResponseCurrent weatherResponseCurrent;
 }

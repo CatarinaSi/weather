@@ -17,6 +17,6 @@ public class WeatherService {
     }
 
     public Weather getWeather(String city) {
-        return weatherProvider.getWeather(city);
+        return weatherProvider.getWeather(city); //TODO: probably we should log here instead of the provider
     }
 }

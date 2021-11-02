@@ -28,16 +28,16 @@ public class WeatherService {
         if (weatherOptional.isPresent()) {
             Weather weather = weatherOptional.get();
 
-            LocalDateTime timThreshold = weather.getTime().plusHours(1);
+            LocalDateTime timThreshold = weather.getTime().plusHours(1); 
             LocalDateTime date = LocalDateTime.now();
 
-            if (date.isAfter(timThreshold)) {
+            if (date.isAfter(timThreshold)) { //TODO: Should not this be other way around? keep the db result for 1 hour? right now I think it will return the db if it is past 1 hour
                 return weather;
             }
             else{
                 Weather newWeather = weatherProvider.getCityWeather(city);
 
-                weather.setTime(newWeather.getTime());
+                weather.setTime(newWeather.getTime()); //Probably I would delete the one we had before and insert the new one, making this transactional
                 weather.setTemperature(newWeather.getTemperature());
                 weather.setPrecipitation(newWeather.getPrecipitation());
 
